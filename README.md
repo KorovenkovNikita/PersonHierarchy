@@ -1,4 +1,5 @@
-#Example init input
+# Example init input
+
 3
 
 Ваня;10;150;50;-;-
