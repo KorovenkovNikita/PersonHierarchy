@@ -1,25 +1,28 @@
 package com.company;
 
-public class Person {
+public abstract class Person implements Info{
     private String name;
+    private String surname;
     private int age;
-    private int height;
-    private int weight;
+    private String gender;
+    private String cityOfResidence;
 
     public Person(String[] personInfo) {
         this.name = personInfo[0];
-        this.age = Integer.parseInt(personInfo[1]);
-        this.height = Integer.parseInt(personInfo[2]);
-        this.weight = Integer.parseInt(personInfo[3]);
+        this.surname = personInfo[1];
+        this.age = Integer.parseInt(personInfo[2]);
+        this.gender = personInfo[3];
+        this.cityOfResidence = personInfo[4];
     }
 
-    public void say() {
-        System.out.println(generateSayMassage());
+    @Override
+    public void printInformation() {
+        System.out.println(getInfo());
     }
 
-    protected String generateSayMassage() {
-        return  "Меня зовут " + this.name + ", мне " + this.age + " лет." +
-                "\n" + "Мой рост " + this.height + " см, а вес " + this.weight + " кг." + "\n";
+    public String getInfo() {
+        return "Name: " + getName() + "\n" + "Surname: " + getSurname() + "\n" + "Age: "
+                + getAge() + "\n" + "Gender: " + getGender() + "\n" + "City of residence: " + getCityOfResidence();
     }
 
     public String getName() {
@@ -30,30 +33,37 @@ public class Person {
         this.name = name;
     }
 
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
     public int getAge() {
         return age;
     }
 
     public void setAge(int age) {
         this.age = age;
-
     }
 
-    public int getHeight() {
-        return height;
+    public String getGender() {
+        return gender;
     }
 
-    public void setHeight(int height) {
-        this.height = height;
-
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
-    public int getWeight() {
-        return weight;
+    public String getCityOfResidence() {
+        return cityOfResidence;
     }
 
-    public void setWeight(int weight) {
-        this.weight = weight;
-
+    public void setCityOfResidence(String cityOfResidence) {
+        this.cityOfResidence = cityOfResidence;
     }
+
+
 }

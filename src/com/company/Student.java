@@ -1,43 +1,33 @@
 package com.company;
 
-
-public class Student extends Person {
-    private Course study;
+public class Student extends Person implements Info {
+    private int course;
+    private String specialization;
 
     public Student(String[] personInfo) {
         super(personInfo);
-        this.study = Course.valueOf(personInfo[4]);
+        this.course = Integer.parseInt(personInfo[5]);
+        this.specialization = personInfo[6];
     }
 
-    public enum Course {
-        FIRST("1 курсе бакалавра"),
-        SECOND("2 курсе бакалавра"),
-        THIRD("3 курсе бакалавра"),
-        FOURTH("4 курсе бакалавра"),
-        FIFTH("1 курсе магистратуры"),
-        SIXTH("2 курсе магистратуры");
-        private final String nameCourse;
-
-        private Course(String nameCourse) {
-            this.nameCourse = nameCourse;
-        }
-
-        public String toString() {
-            return this.nameCourse;
-        }
+    public String getInfo(){
+        return super.getInfo()+"\n"+"Course: "+getCourse()+"\n"+"Specialization: "+getSpecialization();
     }
 
-    @Override
-    public String generateSayMassage() {
-        return super.generateSayMassage() + "Я учусь на " + getStudy() + "." + "\n";
+    public int getCourse() {
+        return course;
     }
 
-    public Course getStudy() {
-        return study;
+    public void setCourse(int course) {
+        this.course = course;
     }
 
-    public void setStudy(String study) {
-        this.study = Course.valueOf(study);
-
+    public String getSpecialization() {
+        return specialization;
     }
+
+    public void setSpecialization(String specialization) {
+        this.specialization = specialization;
+    }
+
 }

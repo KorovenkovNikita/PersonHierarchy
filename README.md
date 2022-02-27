@@ -1,9 +1,5 @@
 # Example init input
 
-3
+1
 
-Ваня;10;150;50;-;-
-
-Коля;21;160;70;FIRST;- 
-
-Дима;30;179;90;-;тракторист
+Vasia Ivanov 21 M NewYork - - 3 Engineer
